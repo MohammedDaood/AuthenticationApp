@@ -1,18 +1,20 @@
-// lib/screens/onboarding_screen.dart
-import 'package:auth_app/helper/shered_Pref.dart';
-import 'package:auth_app/presentation/screens/home_screen.dart';
+// lib/screens/splash_screen.dart
+import 'package:auth_app/core/helper/extensions.dart';
+import 'package:auth_app/core/helper/shered_Pref.dart';
+import 'package:auth_app/core/routing/routes.dart';
+import 'package:auth_app/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({super.key});
+class onboardingScreen extends StatefulWidget {
+  const onboardingScreen({super.key});
 
   @override
-  State<OnboardingScreen> createState() => _OnboardingScreenState();
+  State<onboardingScreen> createState() => _OnboardingScreenState();
 }
 
-class _OnboardingScreenState extends State<OnboardingScreen> {
+class _OnboardingScreenState extends State<onboardingScreen> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
 
@@ -20,17 +22,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     OnboardingModel(
       title: 'أمان أقوى معنا',
       description: 'احصل على حماية متقدمة لبياناتك الشخصية',
-      image: SvgPicture.asset('assets/images/firstimage.svg', width: 300, height: 300),
+      image: SvgPicture.asset('assets/svgs/firstimage.svg', width: 300, height: 300),
     ),
     OnboardingModel(
       title: ' أعداد سهل وبسيط باستخدام كاميرتك',
       description: ' سوف تقوم بمسح كود لتسجيل الدخول بسرعة باستخدام كاميرتك',
-      image: SvgPicture.asset('assets/images/Secondimage.svg', width: 300, height: 300),
+      image: SvgPicture.asset('assets/svgs/Secondimage.svg', width: 300, height: 300),
     ),
     OnboardingModel(
       title: 'رمز فريد يستخدم لتسجيل الدخول',
       description: 'عند استدخدامك للتحقق بخطوتين سوف تقوم بادخال كلمة مرورك ورمز من هذا التطبيق',
-      image: SvgPicture.asset('assets/images/Thirdimage.svg', width: 300, height: 300),
+      image: SvgPicture.asset('assets/svgs/Thirdimage.svg', width: 300, height: 300),
     ),
   ];
 
@@ -44,8 +46,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     await PrefUtils.setOnboardingCompleted();
 
     if (!mounted) return;
-
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+    // this is good?
+    context.pushAndRemoveUntil(Routes.homeScreen, predicate: (route) => false);
   }
 
   @override
@@ -56,7 +58,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Colors.white, Color(0xFFF5F5F5)],
+            colors: [ColorsManager.myWhite, Color(0xFFF5F5F5)],
           ),
         ),
         child: SafeArea(
@@ -85,8 +87,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       effect: const WormEffect(
                         dotHeight: 10,
                         dotWidth: 10,
-                        activeDotColor: Colors.blue,
-                        dotColor: Colors.grey,
+                        activeDotColor: ColorsManager.myBlue,
+                        dotColor: ColorsManager.myGrey,
                       ),
                     ),
                     const SizedBox(height: 30),
@@ -98,8 +100,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         child: ElevatedButton(
                           onPressed: _onGetStarted,
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blue,
-                            foregroundColor: Colors.white,
+                            backgroundColor: ColorsManager.myBlue,
+                            foregroundColor: ColorsManager.myWhite,
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
                           ),
                           child: const Text('ابدأ الآن', style: TextStyle(fontSize: 18)),
@@ -118,8 +120,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               );
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.blue,
-                              foregroundColor: Colors.white,
+                              backgroundColor: ColorsManager.myBlue,
+                              foregroundColor: ColorsManager.myWhite,
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
                               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
                             ),
@@ -169,7 +171,7 @@ class OnboardingPageContent extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 40),
           child: Text(
             model.description,
-            style: const TextStyle(fontSize: 16, color: Colors.grey),
+            style: const TextStyle(fontSize: 16, color: ColorsManager.myGrey),
             textAlign: TextAlign.center,
           ),
         ),

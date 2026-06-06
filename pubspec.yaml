@@ -7,17 +7,19 @@ environment:
   sdk: ^3.11.5
 
 dependencies:
-  flutter:
-    sdk: flutter
+  bloc: ^9.0.0
   cupertino_icons: ^1.0.8
   dio: ^5.9.0
-  flutter_bloc: ^9.1.1
-  bloc: ^9.0.0
   equatable: ^2.0.8
-  shared_preferences: ^2.3.2
-  smooth_page_indicator: ^2.0.1
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.1.1
+  flutter_native_splash: ^2.4.8
+  flutter_screenutil: ^5.9.3
   flutter_svg: ^2.0.10
   google_fonts: ^6.2.1
+  shared_preferences: ^2.3.2
+  smooth_page_indicator: ^2.0.1
 
 dev_dependencies:
   flutter_launcher_icons: "^0.14.4"
@@ -28,7 +30,7 @@ dev_dependencies:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/images/authentication.png"
+  image_path: "assets/images/auth_icon.png"
   min_sdk_android: 21
   remove_alpha_ios: true
 
@@ -37,9 +39,9 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/svgs/
 
   fonts:
-  - family: Cairo
-    fonts:
-      - asset: assets/fonts/Cairo-Regular.ttf  
-
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/cairo.ttf

@@ -1,0 +1,10 @@
+flutter_native_splash:
+  # for run the lib
+  # dart run flutter_native_splash:create
+  color: "#FFFFFF" 
+  image: assets/images/auth_icon.png   
+ 
+  android_12:
+    color: "#FFFFFF"
+    image: assets/images/auth_icon.png    
+    
