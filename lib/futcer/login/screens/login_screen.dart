@@ -21,33 +21,21 @@ class LoginScreen extends StatelessWidget {
               const Spacer(flex: 2),
 
               // Illustration
-              SvgPicture.asset(
-                'assets/svgs/login.svg',
-                width: 400.w,
-                height: 400.h,
-              ),
+              SvgPicture.asset('assets/svgs/login.svg', width: 400.w, height: 400.h),
 
               SizedBox(height: 30.h),
 
               Text(
                 "تسجيل الدخول",
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: ColorsManager.myBlack,
-                ),
+                style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: ColorsManager.myBlack),
               ),
               SizedBox(height: 10.h),
 
               Text(
                 "قم بمسح رمز الكود لتسجيل الدخول",
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.normal,
-                  color: ColorsManager.myGrey,
-                ),
+                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.normal, color: ColorsManager.myGrey),
               ),
 
               const Spacer(flex: 3),
@@ -79,11 +67,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: Icon(
-                    Icons.qr_code_scanner_rounded,
-                    size: 40.sp,
-                    color: ColorsManager.myWhite,
-                  ),
+                  child: Icon(Icons.qr_code_scanner_rounded, size: 40.sp, color: ColorsManager.myWhite),
                 ),
               ),
 

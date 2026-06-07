@@ -7,26 +7,48 @@ environment:
   sdk: ^3.11.5
 
 dependencies:
-  bloc: ^9.0.0
-  cupertino_icons: ^1.0.8
-  dio: ^5.9.0
-  equatable: ^2.0.8
   flutter:
     sdk: flutter
-  flutter_bloc: ^9.1.1
-  flutter_native_splash: ^2.4.8
+  
+  # UI
+  cupertino_icons: ^1.0.8
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.0.10
   google_fonts: ^6.2.1
-  mobile_scanner: ^7.2.0
-  shared_preferences: ^2.3.2
   smooth_page_indicator: ^2.0.1
+  
+  # State Management
+  bloc: ^9.0.0
+  flutter_bloc: ^9.1.1
+  equatable: ^2.0.8
+  
+  # Networking
+  dio: ^5.9.0
+  retrofit: ^4.9.2
+  pretty_dio_logger: ^1.4.0
+  
+  # JSON & Code Generation (annotations فقط)
+  json_annotation: ^4.12.0
+  freezed_annotation: ^3.1.0
+  
+  # Storage
+  shared_preferences: ^2.3.2
+  
+  # Other
+  mobile_scanner: ^7.2.0
+  flutter_native_splash: ^2.4.8
 
 dev_dependencies:
-  flutter_launcher_icons: "^0.14.4"
-  flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
+  flutter_lints: ^6.0.0
+  
+  # Code Generation (tools فقط - توضع هنا)
+  build_runner: ^2.15.0
+  json_serializable: ^6.14.0
+  freezed: ^3.2.5
+  retrofit_generator: ^10.2.6   
+  flutter_launcher_icons: ^0.14.4
 
 flutter_launcher_icons:
   android: "launcher_icon"

@@ -27,10 +27,7 @@ class _QrScannerScreenState extends State<QrScannerScreen> {
       appBar: AppBar(
         backgroundColor: ColorsManager.myBlack,
         iconTheme: const IconThemeData(color: ColorsManager.myWhite),
-        title: const Text(
-          "مسح رمز QR",
-          style: TextStyle(color: ColorsManager.myWhite),
-        ),
+        title: const Text("مسح رمز QR", style: TextStyle(color: ColorsManager.myWhite)),
         actions: [
           IconButton(
             icon: const Icon(Icons.flash_on),
@@ -61,12 +58,9 @@ class _QrScannerScreenState extends State<QrScannerScreen> {
                 // TODO: handle the scanned value
                 debugPrint('QR Code: $code');
 
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text('تم المسح: $code'),
-                    backgroundColor: ColorsManager.myBlue,
-                  ),
-                );
+                ScaffoldMessenger.of(
+                  context,
+                ).showSnackBar(SnackBar(content: Text('تم المسح: $code'), backgroundColor: ColorsManager.myBlue));
 
                 Navigator.pop(context, code);
               }
