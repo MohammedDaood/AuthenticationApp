@@ -70,5 +70,7 @@
 		<false/>
 		<key>UIViewControllerBasedStatusBarAppearance</key>
 		<false/>
+		<key>NSCameraUsageDescription</key>
+		<string>نحتاج الكاميرا لمسح رمز  لتسجيل الدخول</string>
 	</dict>
 </plist>

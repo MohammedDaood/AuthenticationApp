@@ -22,17 +22,30 @@ class _OnboardingScreenState extends State<onboardingScreen> {
     OnboardingModel(
       title: 'أمان أقوى معنا',
       description: 'احصل على حماية متقدمة لبياناتك الشخصية',
-      image: SvgPicture.asset('assets/svgs/firstimage.svg', width: 300, height: 300),
+      image: SvgPicture.asset(
+        'assets/svgs/firstimage.svg',
+        width: 300,
+        height: 300,
+      ),
     ),
     OnboardingModel(
       title: ' أعداد سهل وبسيط باستخدام كاميرتك',
       description: ' سوف تقوم بمسح كود لتسجيل الدخول بسرعة باستخدام كاميرتك',
-      image: SvgPicture.asset('assets/svgs/Secondimage.svg', width: 300, height: 300),
+      image: SvgPicture.asset(
+        'assets/svgs/Secondimage.svg',
+        width: 300,
+        height: 300,
+      ),
     ),
     OnboardingModel(
       title: 'رمز فريد يستخدم لتسجيل الدخول',
-      description: 'عند استدخدامك للتحقق بخطوتين سوف تقوم بادخال كلمة مرورك ورمز من هذا التطبيق',
-      image: SvgPicture.asset('assets/svgs/Thirdimage.svg', width: 300, height: 300),
+      description:
+          'عند استدخدامك للتحقق بخطوتين سوف تقوم بادخال كلمة مرورك ورمز من هذا التطبيق',
+      image: SvgPicture.asset(
+        'assets/svgs/Thirdimage.svg',
+        width: 300,
+        height: 300,
+      ),
     ),
   ];
 
@@ -47,7 +60,7 @@ class _OnboardingScreenState extends State<onboardingScreen> {
 
     if (!mounted) return;
     // this is good?
-    context.pushAndRemoveUntil(Routes.homeScreen, predicate: (route) => false);
+    context.pushAndRemoveUntil(Routes.loginScreen, predicate: (route) => false);
   }
 
   @override
@@ -64,19 +77,19 @@ class _OnboardingScreenState extends State<onboardingScreen> {
         child: SafeArea(
           child: Column(
             children: [
-              // PageView
               Expanded(
                 child: PageView.builder(
                   controller: _pageController,
                   onPageChanged: _onPageChanged,
                   itemCount: _onboardingPages.length,
                   itemBuilder: (context, index) {
-                    return OnboardingPageContent(model: _onboardingPages[index]);
+                    return OnboardingPageContent(
+                      model: _onboardingPages[index],
+                    );
                   },
                 ),
               ),
 
-              // Page Indicator and Button
               Padding(
                 padding: const EdgeInsets.all(30),
                 child: Column(
@@ -102,9 +115,14 @@ class _OnboardingScreenState extends State<onboardingScreen> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: ColorsManager.myBlue,
                             foregroundColor: ColorsManager.myWhite,
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(25),
+                            ),
                           ),
-                          child: const Text('ابدأ الآن', style: TextStyle(fontSize: 18)),
+                          child: const Text(
+                            'ابدأ الآن',
+                            style: TextStyle(fontSize: 18),
+                          ),
                         ),
                       )
                     else
@@ -122,8 +140,13 @@ class _OnboardingScreenState extends State<onboardingScreen> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: ColorsManager.myBlue,
                               foregroundColor: ColorsManager.myWhite,
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-                              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                                vertical: 12,
+                              ),
                             ),
                             child: const Text('التالي'),
                           ),
@@ -145,10 +168,13 @@ class OnboardingModel {
   final String description;
   final Widget image;
 
-  OnboardingModel({required this.title, required this.description, required this.image});
+  OnboardingModel({
+    required this.title,
+    required this.description,
+    required this.image,
+  });
 }
 
-// Individual page widget
 class OnboardingPageContent extends StatelessWidget {
   final OnboardingModel model;
 

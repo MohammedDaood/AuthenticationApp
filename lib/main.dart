@@ -9,7 +9,9 @@ void main() async {
 
   final isCompleted = await PrefUtils.isOnboardingCompleted();
 
-  final initialRoute = isCompleted ? Routes.homeScreen : Routes.onboardingScreen;
+  final initialRoute = isCompleted
+      ? Routes.loginScreen
+      : Routes.onboardingScreen;
 
   runApp(AuthApp(appRouter: AppRouter(), initialRoute: initialRoute));
 }
