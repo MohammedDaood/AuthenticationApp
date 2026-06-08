@@ -6,12 +6,10 @@ import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await PrefUtils.init();
+  final isCompleted = PrefUtils.isOnboardingCompleted();
 
-  final isCompleted = await PrefUtils.isOnboardingCompleted();
-
-  final initialRoute = isCompleted
-      ? Routes.loginScreen
-      : Routes.onboardingScreen;
+  final initialRoute = isCompleted ? Routes.loginScreen : Routes.onboardingScreen;
 
   runApp(AuthApp(appRouter: AppRouter(), initialRoute: initialRoute));
 }
