@@ -55,7 +55,6 @@ class _QrScannerScreenState extends State<QrScannerScreen> {
               if (code != null) {
                 setState(() => _hasScanned = true);
 
-                // TODO: handle the scanned value
                 debugPrint('QR Code: $code');
 
                 ScaffoldMessenger.of(
@@ -67,7 +66,6 @@ class _QrScannerScreenState extends State<QrScannerScreen> {
             },
           ),
 
-          // Overlay with scan frame
           Center(
             child: Container(
               width: 250,
@@ -79,7 +77,6 @@ class _QrScannerScreenState extends State<QrScannerScreen> {
             ),
           ),
 
-          // Hint text
           Positioned(
             bottom: 60,
             left: 0,

@@ -22,30 +22,17 @@ class _OnboardingScreenState extends State<onboardingScreen> {
     OnboardingModel(
       title: 'أمان أقوى معنا',
       description: 'احصل على حماية متقدمة لبياناتك الشخصية',
-      image: SvgPicture.asset(
-        'assets/svgs/firstimage.svg',
-        width: 300,
-        height: 300,
-      ),
+      image: SvgPicture.asset('assets/svgs/firstimage.svg', width: 300, height: 300),
     ),
     OnboardingModel(
       title: ' أعداد سهل وبسيط باستخدام كاميرتك',
       description: ' سوف تقوم بمسح كود لتسجيل الدخول بسرعة باستخدام كاميرتك',
-      image: SvgPicture.asset(
-        'assets/svgs/Secondimage.svg',
-        width: 300,
-        height: 300,
-      ),
+      image: SvgPicture.asset('assets/svgs/Secondimage.svg', width: 300, height: 300),
     ),
     OnboardingModel(
       title: 'رمز فريد يستخدم لتسجيل الدخول',
-      description:
-          'عند استدخدامك للتحقق بخطوتين سوف تقوم بادخال كلمة مرورك ورمز من هذا التطبيق',
-      image: SvgPicture.asset(
-        'assets/svgs/Thirdimage.svg',
-        width: 300,
-        height: 300,
-      ),
+      description: 'عند استدخدامك للتحقق بخطوتين سوف تقوم بادخال كلمة مرورك ورمز من هذا التطبيق',
+      image: SvgPicture.asset('assets/svgs/Thirdimage.svg', width: 300, height: 300),
     ),
   ];
 
@@ -59,7 +46,6 @@ class _OnboardingScreenState extends State<onboardingScreen> {
     await PrefUtils.setOnboardingCompleted();
 
     if (!mounted) return;
-    // this is good?
     context.pushAndRemoveUntil(Routes.loginScreen, predicate: (route) => false);
   }
 
@@ -83,9 +69,7 @@ class _OnboardingScreenState extends State<onboardingScreen> {
                   onPageChanged: _onPageChanged,
                   itemCount: _onboardingPages.length,
                   itemBuilder: (context, index) {
-                    return OnboardingPageContent(
-                      model: _onboardingPages[index],
-                    );
+                    return OnboardingPageContent(model: _onboardingPages[index]);
                   },
                 ),
               ),
@@ -115,14 +99,9 @@ class _OnboardingScreenState extends State<onboardingScreen> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: ColorsManager.myBlue,
                             foregroundColor: ColorsManager.myWhite,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25),
-                            ),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
                           ),
-                          child: const Text(
-                            'ابدأ الآن',
-                            style: TextStyle(fontSize: 18),
-                          ),
+                          child: const Text('ابدأ الآن', style: TextStyle(fontSize: 18)),
                         ),
                       )
                     else
@@ -140,13 +119,8 @@ class _OnboardingScreenState extends State<onboardingScreen> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: ColorsManager.myBlue,
                               foregroundColor: ColorsManager.myWhite,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25),
-                              ),
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 30,
-                                vertical: 12,
-                              ),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+                              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
                             ),
                             child: const Text('التالي'),
                           ),
@@ -168,11 +142,7 @@ class OnboardingModel {
   final String description;
   final Widget image;
 
-  OnboardingModel({
-    required this.title,
-    required this.description,
-    required this.image,
-  });
+  OnboardingModel({required this.title, required this.description, required this.image});
 }
 
 class OnboardingPageContent extends StatelessWidget {

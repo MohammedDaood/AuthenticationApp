@@ -1,7 +1,6 @@
 import 'package:auth_app/core/helper/extensions.dart';
 import 'package:auth_app/core/routing/routes.dart';
 import 'package:auth_app/core/theming/colors.dart';
-import 'package:auth_app/futcer/login/screens/%20qr_scanner_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -45,7 +44,10 @@ class LoginScreen extends StatelessWidget {
               // QR Scan Circle Button
               GestureDetector(
                 onTap: () async {
-                  context.pushNamed(Routes.qrScannerScreen);
+                  final result = await context.pushNamed(Routes.qrScannerScreen);
+                  if (result != null) {
+                    print('النتيجة: $result');
+                  }
                 },
                 child: Container(
                   width: 100.w,
