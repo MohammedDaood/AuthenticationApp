@@ -62,6 +62,7 @@ class _QrScannerScreenState extends State<QrScannerScreen> {
                 ).showSnackBar(SnackBar(content: Text('تم المسح: $code'), backgroundColor: ColorsManager.myBlue));
 
                 Navigator.pop(context, code);
+                //sdfsa
               }
             },
           ),
